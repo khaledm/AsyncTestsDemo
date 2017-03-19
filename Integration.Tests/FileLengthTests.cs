@@ -23,7 +23,7 @@ namespace Integration.Tests
         public void TestFileProbingEntToEnd()
         {
             FileLengthProbe probe = new FileLengthProbe(path, (lastLength) => lastLength >= 100);
-            Poller.AssertEventually(probe, 6000, 2000);
+            Poller.AssertEventually(probe, 60000, 20000);
         }
     }
 }

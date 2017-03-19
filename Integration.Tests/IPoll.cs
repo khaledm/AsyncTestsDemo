@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Integration.Tests
@@ -30,7 +31,7 @@ namespace Integration.Tests
                     throw new NUnit.Framework.AssertionException("Failure to complete the assertion (acceptance ctr + error message)");
                 }
 
-                Thread.Sleep(pollDelayMillis);
+                Task.Delay(pollDelayMillis).Wait();
 
                 probe.Sample();
             }

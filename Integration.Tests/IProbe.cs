@@ -31,13 +31,11 @@ namespace Integration.Tests
 
         public bool IsSatisfied()
         {
-            Console.WriteLine("Satisfying now..");
             return lastFileLength != NOT_SET && Matcher(lastFileLength);
         }
 
         public void Sample()
         {
-            Console.WriteLine("Sampling now..");
             FileInfo filefUnderTest = new FileInfo(Path.Combine(filePath));            
             lastFileLength = filefUnderTest.Length;
         }
