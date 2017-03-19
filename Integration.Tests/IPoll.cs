@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Integration.Tests
@@ -28,7 +26,7 @@ namespace Integration.Tests
             {
                 if (timeout.HasTimedOut())
                 {
-                    throw new NUnit.Framework.AssertionException("Failure to complete the assertion (acceptance ctr + error message)");
+                    throw new AssertionException("Failure to complete the assertion (acceptance ctr + error message)");
                 }
 
                 Task.Delay(pollDelayMillis).Wait();
