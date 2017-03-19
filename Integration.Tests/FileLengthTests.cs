@@ -14,16 +14,16 @@ namespace Integration.Tests
         public void Setup()
         {
             // create an file in the executing assembly folder
-            path = Path.Combine( Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "TestFileName" + DateTime.Now.Millisecond+"txt");
-            FileInfo fileUnderTest = new FileInfo(path);
+            path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "TestFileName" + DateTime.Now.Millisecond + "txt");
+            var fileUnderTest = new FileInfo(path);
             fileUnderTest.Create();
         }
 
         [Test]
-        public void TestFileProbingEntToEnd()
+        public void TestFileLengthProbingEndToEnd()
         {
-            FileLengthProbe probe = new FileLengthProbe(path, (lastLength) => lastLength >= 100);
-            Poller.AssertEventually(probe, 60000, 20000);
+            var probe = new FileLengthProbe(path, (lastLength) => lastLength >= 100);
+            Poller.AssertEventually(probe, 1000, 100);
         }
     }
 }

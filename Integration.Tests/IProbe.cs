@@ -25,7 +25,7 @@ namespace Integration.Tests
         public FileLengthProbe(string filePath, Func<long,bool> matcher)
         {
             this.filePath = filePath;
-            Matcher = matcher;            
+            Matcher = matcher;
         }
         public Func<long,bool> Matcher { get; private set; }
 
@@ -36,7 +36,7 @@ namespace Integration.Tests
 
         public void Sample()
         {
-            FileInfo filefUnderTest = new FileInfo(Path.Combine(filePath));            
+            FileInfo filefUnderTest = new FileInfo(Path.Combine(filePath));
             lastFileLength = filefUnderTest.Length;
         }
     }

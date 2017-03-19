@@ -10,19 +10,19 @@ namespace Integration.Tests
     {
         public Timeout(long totalDuration)
         {
-            endtime = DateTime.Now.Millisecond + totalDuration;
+            endtime = DateTime.Now.AddMilliseconds(totalDuration);
         }
 
-        public long endtime { get; private set; }
+        public DateTime endtime { get; private set; }
 
         public bool HasTimedOut()
         {
             return TimeRemaining() <= 0;
         }
 
-        private long TimeRemaining()
+        private double TimeRemaining()
         {
-            return endtime - DateTime.Now.Millisecond;
+            return (endtime - DateTime.Now).TotalMilliseconds;
         }
     }
 }
